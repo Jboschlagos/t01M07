@@ -3,6 +3,7 @@
 Este proyecto es una práctica del curso Fullstack JavaScript. Implementa un servidor en Node.js que se conecta a PostgreSQL mediante dos enfoques (configuración por campos y connection string) usando `pg` y pool de conexiones. Expone dos endpoints GET (`/finanzas` y `/clientes`) que devuelven datos de tablas, y un frontend simple con Bootstrap para visualizar la información.
 
 ## 📁 Estructura del proyecto
+```
 proyecto/
 ├── backend/
 │ ├── server.js
@@ -17,7 +18,7 @@ proyecto/
 └── screenshots/
 ├── finanzas_vista.png
 └── clientes_vista.png
-
+```
 text
 
 ## 🚀 Comandos utilizados para crear el proyecto desde la terminal
