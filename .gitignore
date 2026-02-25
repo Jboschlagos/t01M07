@@ -1,0 +1,23 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Entorno y configuraciones
+.env
+.env.local
+.env.*.local
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Directorios de dependencias (por si acaso)
+jspm_packages/
