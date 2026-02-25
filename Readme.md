@@ -3,6 +3,7 @@
 Este proyecto es una práctica del curso Fullstack JavaScript. Implementa un servidor en Node.js que se conecta a PostgreSQL mediante dos enfoques (configuración por campos y connection string) usando `pg` y pool de conexiones. Expone dos endpoints GET (`/finanzas` y `/clientes`) que devuelven datos de tablas, y un frontend simple con Bootstrap para visualizar la información.
 
 ## 📁 Estructura del proyecto
+```
 proyecto/
 ├── backend/
 │ ├── server.js
@@ -17,7 +18,7 @@ proyecto/
 └── screenshots/
 ├── finanzas_vista.png
 └── clientes_vista.png
-
+```
 text
 
 ## 🚀 Comandos utilizados para crear el proyecto desde la terminal
@@ -26,16 +27,21 @@ A continuación se muestran los comandos ejecutados para generar la estructura y
 
 ### 1. Crear carpetas principales
 
-```bash
+bash
+```
 mkdir -p proyecto/backend proyecto/frontend proyecto/sql proyecto/screenshots
+```
 cd proyecto
 2. Inicializar backend e instalar dependencias
+```
 bash
 cd backend
 npm init -y
 npm install express pg dotenv
+```
 3. Crear archivo de entorno (.env)
 bash
+```
 cat > .env << 'EOF'
 DB_HOST=localhost
 DB_PORT=5432
@@ -44,14 +50,18 @@ DB_PASSWORD=tu_contraseña
 DB_NAME=tarea01Modulo07
 DATABASE_URL=postgresql://postgres:tu_contraseña@localhost:5432/tarea01Modulo07
 EOF
+```
 4. Crear el servidor (server.js)
-(Puedes copiar el contenido del archivo desde el código proporcionado en la solución)
+
 
 5. Crear archivos frontend
 bash
+```
 cd ../frontend
 # Crear finanzas.html y clientes.html con el contenido respectivo
+```
 6. Crear scripts SQL (opcional)
+```
 bash
 cd ../sql
 cat > finanzas.sql << 'EOF'
@@ -87,6 +97,7 @@ INSERT INTO clientes (nombre, email, telefono) VALUES
 ('Carlos López', 'carlos@example.com', '555-9012')
 ON CONFLICT (email) DO NOTHING;
 EOF
+```
 ⚙️ Instalación y configuración
 Clona el repositorio
 
