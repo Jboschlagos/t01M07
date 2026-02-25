@@ -1,6 +1,6 @@
 const express = require('express');
 const { Pool } = require('pg');
-require('dotenv').config();
+require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 
 const app = express();
 const port = 3000;
@@ -31,7 +31,6 @@ const poolString = new Pool({
 // GET /finanzas - usa pool por configuración
 app.get('/finanzas', async (req, res) => {
   try {
-    // Verificar si la tabla existe, si no crearla
     await poolConfig.query(`
       CREATE TABLE IF NOT EXISTS finanzas_personales (
         id SERIAL PRIMARY KEY,
@@ -42,9 +41,8 @@ app.get('/finanzas', async (req, res) => {
       )
     `);
 
-    // Poblar con algunos registros si está vacía
-    const { rowCount } = await poolConfig.query('SELECT COUNT(*) FROM finanzas_personales');
-    if (rowCount === 0) {
+    const countResult = await poolConfig.query('SELECT COUNT(*) FROM finanzas_personales');
+    if (countResult.rows[0].count === '0') {
       await poolConfig.query(`
         INSERT INTO finanzas_personales (fecha, descripcion, categoria, monto) VALUES
         ('2025-01-15', 'Compra supermercado', 'Alimentación', 150.75),
@@ -57,14 +55,13 @@ app.get('/finanzas', async (req, res) => {
     res.status(200).json(rows);
   } catch (error) {
     console.error('Error en /finanzas:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    res.status(500).json({ error: error.message });
   }
 });
 
 // GET /clientes - usa pool por connection string
 app.get('/clientes', async (req, res) => {
   try {
-    // Verificar si la tabla existe, si no crearla
     await poolString.query(`
       CREATE TABLE IF NOT EXISTS clientes (
         id SERIAL PRIMARY KEY,
@@ -75,9 +72,8 @@ app.get('/clientes', async (req, res) => {
       )
     `);
 
-    // Poblar con algunos registros si está vacía
-    const { rowCount } = await poolString.query('SELECT COUNT(*) FROM clientes');
-    if (rowCount === 0) {
+    const countResult = await poolString.query('SELECT COUNT(*) FROM clientes');
+    if (countResult.rows[0].count === '0') {
       await poolString.query(`
         INSERT INTO clientes (nombre, email, telefono) VALUES
         ('Juan Pérez', 'juan@example.com', '555-1234'),
@@ -90,7 +86,7 @@ app.get('/clientes', async (req, res) => {
     res.status(200).json(rows);
   } catch (error) {
     console.error('Error en /clientes:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    res.status(500).json({ error: error.message });
   }
 });
 
