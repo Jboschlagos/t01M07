@@ -145,5 +145,5 @@ GET	/clientes	Devuelve todos los registros de clientes (pool por connection stri
 🖼️ Capturas de pantalla
 Las capturas de las vistas funcionando se encuentran en la carpeta screenshots.
 
-"" 📄 Licencia
+## 📄 Licencia
 Este proyecto es solo con fines educativos.
