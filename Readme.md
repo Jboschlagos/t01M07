@@ -98,49 +98,52 @@ INSERT INTO clientes (nombre, email, telefono) VALUES
 ON CONFLICT (email) DO NOTHING;
 EOF
 ```
-⚙️ Instalación y configuración
+## ⚙️ Instalación y configuración
 Clona el repositorio
 
 bash
+```
 git clone <url-del-repo>
 cd proyecto
-Configura la base de datos
+```
+1. Configura la base de datos
 
-Asegúrate de tener PostgreSQL instalado y corriendo.
+2. Asegúrate de tener PostgreSQL instalado y corriendo.
 
-Crea una base de datos (por ejemplo, tarea01Modulo07).
+3. Crea una base de datos (por ejemplo, tarea01Modulo07).
 
-Ajusta el archivo backend/.env con tus credenciales.
+4. Ajusta el archivo backend/.env con tus credenciales.
 
-Instala dependencias del backend
+5. Instala dependencias del backend
 
 bash
 cd backend
+```
 npm install
-Inicia el servidor
+```
+7. Inicia el servidor
 
 bash
+```
 npm start
 El servidor correrá en http://localhost:3000.
-
-Poblar las tablas (si no existen)
+```
+6. Poblar las tablas (si no existen)
 
 Los endpoints (/finanzas y /clientes) crean las tablas automáticamente si no existen.
 
 Si las tablas están vacías, se insertan datos de ejemplo al hacer la primera petición.
 
-Abrir el frontend
+7. Abrir el frontend
 
-Desde el explorador de archivos, abre frontend/finanzas.html y frontend/clientes.html.
+8. Desde el explorador de archivos, abre frontend/finanzas.html y frontend/clientes.html. Deben mostrar los datos en formato tabla (finanzas) y tarjetas (clientes).
 
-Deben mostrar los datos en formato tabla (finanzas) y tarjetas (clientes).
-
-📡 Endpoints disponibles
+## 📡 Endpoints disponibles
 Método	Ruta	Descripción
 GET	/finanzas	Devuelve todos los registros de finanzas_personales (pool por configuración).
 GET	/clientes	Devuelve todos los registros de clientes (pool por connection string).
 🖼️ Capturas de pantalla
 Las capturas de las vistas funcionando se encuentran en la carpeta screenshots.
 
-📄 Licencia
+"" 📄 Licencia
 Este proyecto es solo con fines educativos.
