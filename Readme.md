@@ -200,3 +200,4 @@ Las capturas de las vistas funcionando se encuentran en la carpeta screenshots.
 
 ## 📄 Licencia
 Este proyecto es solo con fines educativos.
+Autor | Jorge Bosch | Aprendiz Fullstack Javascript 2026
